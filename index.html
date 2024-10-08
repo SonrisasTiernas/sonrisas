@@ -5,166 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundación Sonrisas Tiernas</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital@0;1&family=Caveat&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #FF9F1C;
-            --secondary-color: #2EC4B6;
-            --accent-color: #E71D36;
-            --background-color: #FDFFFC;
-            --text-color: #011627;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: space-around;
-        }
-        nav ul li a {
-            color: var(--background-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: var(--accent-color);
-            transform: scale(1.1);
-        }
-        main {
-            padding: 2rem 0;
-        }
-        .hero {
-            background-image: url('/api/placeholder/1200/600');
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--background-color);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            transition: opacity 0.5s ease;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Caveat', cursive;
-            color: var(--primary-color);
-            animation: fadeIn 1s ease-in-out;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .section {
-            margin-bottom: 4rem;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .section h2 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-family: 'Lora', serif;
-            font-size: 2rem;
-        }
-        .section p {
-            margin-bottom: 1rem;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-        .gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
-        }
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--background-color);
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #c91a2d;
-            transform: translateY(-5px);
-        }
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--background-color);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav ul li {
-                margin-bottom: 0.5rem;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-        /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-    </style>
+    <link rel="stylesheet" href="style/styles.css">
 </head>
+<style>
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px; /* Ajusta la altura según tus necesidades */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.3s ease-in-out; /* Transición más rápida y fluida */
+}
+
+.carousel-images img {
+    min-width: calc(100% - 30px); /* Reduce el ancho para dejar espacio */
+    margin: 0 15px; /* Espacio entre las imágenes */
+    height: auto; /* Mantiene la relación de aspecto de las imágenes */
+}
+
+@media (min-width: 1200px) { /* Cambia según tu diseño deseado */
+    .carousel-images img {
+        width: 0%; /* Imágenes más pequeñas en pantallas grandes */
+    }
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+
+
+</style>
 <body>
     <header>
         <div class="container">
@@ -207,19 +97,31 @@
 
             <section id="galeria" class="section">
                 <h2>Galería de Momentos</h2>
-                <div class="gallery">
-                    <img src="./img/Imagen1.jpg" alt="Carnavales del Municipio de Barbacoas">
-                    <img src="./img/Imagen2.jpg" alt="Carnaval del Municipio de Barbacoas/ Nariño">
-                    <img src="./img/Imagen3.jpg" alt="Carnaval">
-                    <img src="./img/Imagen4.jpg" alt="Visita a la casa de uno de los niño que pertenecen a la Fundacion Sonrisas Tiernas" >
-                    <img src="./img/Imagen5.jpg" alt="Cantar jugar y reir" 
-                    <img src="./img/Imagen6.jpg" alt="Visita del personal de salud  de la E.S.E del HSA">
-                    <img src="./img/Imagen7.jpg" alt="Visita del personal de salud  de la E.S.E del HSA" >
-                    <img src="./img/Imagen8.jpg" alt="Clases de Danza" >
-                    <img src="./img/Imagen9.jpg" alt="Participación de la Fundacion Sonrisas Tiernas en los carnavales del Municipio de Barbacoas/ Nariño" >
-                    <!-- Más imágenes... -->
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="./img/Imagen1.jpg" alt="Carnavales del Municipio de Barbacoas">
+                        <img src="./img/Imagen2.jpg" alt="Carnaval del Municipio de Barbacoas/ Nariño">
+                        <img src="./img/Imagen3.jpg" alt="Carnaval">
+                        <img src="./img/Imagen4.jpg" alt="Visita a la casa de uno de los niño que pertenecen a la Fundación Sonrisas Tiernas">
+                        <img src="./img/Imagen5.jpg" alt="Cantar jugar y reir">
+                        <img src="./img/Imagen6.jpg" alt="Visita del personal de salud de la E.S.E del HSA">
+                        <img src="./img/Imagen7.jpg" alt="Visita del personal de salud de la E.S.E del HSA">
+                        <img src="./img/Imagen8.jpg" alt="Clases de Danza">
+                        <img src="./img/Imagen9.jpg" alt="Participación de la Fundación Sonrisas Tiernas en los carnavales del Municipio de Barbacoas/ Nariño">
+                    </div>
+                    
+                    <!-- Contenedor para visualizar la imagen ampliada -->
+                    <div id="imageModal" class="image-modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modalImage">
+                        <div id="caption"></div>
+                    </div>
                 </div>
+                <!-- <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button> -->
             </section>
+            
+            
 
             <section id="ubicacion" class="section">
                 <h2>Ubicación</h2>
@@ -243,5 +145,78 @@
     <footer>
         <p>&copy; 2024 Fundación Sonrisas Tiernas - Todos los derechos reservados</p>
     </footer>
+
+    <script>
+        // Seleccionamos el modal, la imagen dentro del modal y el caption
+        var modal = document.getElementById('imageModal');
+        var modalImg = document.getElementById("modalImage");
+        var captionText = document.getElementById("caption");
+        var images = document.querySelectorAll('.gallery img');
+        var closeBtn = document.getElementsByClassName("close")[0];
+    
+        // Agregar el evento de clic a todas las imágenes de la galería
+        images.forEach(function(img) {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        });
+    
+        // Cerrar el modal al presionar el botón de cierre
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+    
+        // Cerrar el modal al hacer clic fuera de la imagen
+        modal.onclick = function(event) {
+            if (event.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        }
+    
+        var slideIndex = 0;
+        var slides = document.querySelectorAll('.carousel-images img');
+        var totalSlides = slides.length;
+    
+        // Mostrar el primer slide
+        showSlide(slideIndex);
+    
+        // Función para mostrar el slide actual
+        function showSlide(index) {
+            slideIndex = (index + totalSlides) % totalSlides; // Ciclo infinito
+    
+            // Mueve las imágenes al slide correcto
+            document.querySelector('.carousel-images').style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+    
+        // Carrusel automático sin pausa
+        setInterval(function() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }, 900); // Cambia la imagen cada 100 ms (ajustable)
+    
+        // Agregar el evento de clic a todas las imágenes del carrusel
+        slides.forEach(function(img) {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        });
+    
+        // Cerrar el modal al presionar el botón de cierre
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+    
+        // Cerrar el modal al hacer clic fuera de la imagen
+        modal.onclick = function(event) {
+            if (event.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
 </body>
 </html>
