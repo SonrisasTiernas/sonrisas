@@ -5,137 +5,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundación Sonrisas Tiernas</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital@0;1&family=Caveat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/styles.css">
 </head>
 <style>
-  .carousel {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 400px; /* Ajusta la altura según tus necesidades */
-}
-
-.carousel-images {
-    display: flex;
-    transition: transform 0.3s ease-in-out; /* Transición más rápida y fluida */
-}
-
-.carousel-images img {
-    min-width: calc(100% - 30px); /* Reduce el ancho para dejar espacio */
-    margin: 0 15px; /* Espacio entre las imágenes */
-    height: auto; /* Mantiene la relación de aspecto de las imágenes */
-}
-
-@media (min-width: 1200px) { /* Cambia según tu diseño deseado */
-    .carousel-images img {
-        width: 0%; /* Imágenes más pequeñas en pantallas grandes */
-    }
-}
-
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 10;
-}
-
-button.prev {
-    left: 10px;
-}
-
-button.next {
-    right: 10px;
-}
-
-/* Estilos generales para el header */
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #27b0cc; /* Color de fondo */
-    padding: 20px;
-}
-
-.fundacion-title {
-    font-size: 2em; /* Ajusta el tamaño según tus preferencias */
+ /* General reset */
+* {
     margin: 0;
-    color: #333; /* Color del texto */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilos para el nav */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    padding-right: 1rem;
+}
+
 nav {
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .nav-list {
     display: flex;
     list-style: none;
-    padding: 0;
-    margin: 0;
-    justify-content: center; /* Centra los elementos del menú */
-    transition: max-height 0.3s ease-out; /* Suaviza el despliegue */
 }
 
 .nav-list li {
-    margin: 0 15px; /* Espaciado entre los enlaces */
+    margin-left: 2rem;
 }
 
 .nav-list a {
-    text-decoration: none; /* Sin subrayado */
-    color: #feffff; /* Color del texto */
-    padding: 10px 15px;
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Transición suave */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
 }
 
 .nav-list a:hover {
-    background-color: #007bff; /* Color de fondo al pasar el mouse */
-    color: white; /* Color del texto al pasar el mouse */
+    color: #ffcc00;
 }
 
-/* Estilos para el icono del menú */
-.menu-icon {
-    display: none; /* Ocultar en pantallas grandes */
-    font-size: 2em;
-    cursor: pointer; /* Manito al pasar el mouse */
+/* Hero section */
+.hero {
+    position: relative;
+    background-image: url('./img/Imagen2.jpg'); /* Cambia a la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Ajusta la altura según sea necesario */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: rgb(246, 246, 246); /* Cambia el color del texto a blanco o otro color que contraste */
+    padding: 20px;
 }
 
-/* Media query para pantallas pequeñas */
+.hero-content h1 {
+    font-size: 3rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para destacar el texto */
+}
+
+.hero-content p {
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    margin: 10px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para destacar el texto */
+}
+
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: #ff5733; /* Cambia a un color de botón que destaque */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+
+
+
+.cta-button:hover {
+    background-color: #c0392b; /* Color al pasar el ratón */
+}
+
+/* Sections */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+}
+
+.section p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Gallery / Carousel */
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    max-width: 100%;
+    max-height: 400px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+/* Image Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    display: block;
+    margin: 15% auto;
+    max-width: 80%;
+    border-radius: 5px;
+}
+
+#caption {
+    color: white;
+    text-align: center;
+    margin: 1rem;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ffcc00;
+}
+
+/* Location Section */
+#map {
+    margin-top: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .menu-icon {
-        display: block; /* Mostrar el icono en pantallas pequeñas */
-    }
-
     .nav-list {
-        display: none; /* Ocultar el menú por defecto */
-        flex-direction: column; /* Cambiar a disposición vertical */
-        width: 100%; /* Ancho completo */
-        max-height: 0; /* Ocultar el menú */
-        overflow: hidden; /* Evitar desbordamiento */
-        background-color: #27b0cc; /* Color de fondo del menú desplegable */
-    }
-
-    .nav-list.show {
-        display: flex; /* Mostrar menú al activar */
-        max-height: 300px; /* Ajusta según la cantidad de elementos */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #1a1a1a;
+        width: 100%;
+        padding: 1rem;
     }
 
     .nav-list li {
-        margin: 10px 0; /* Espaciado vertical */
-        text-align: center; /* Centrados */
+        margin: 1rem 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-list.show {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
     }
 }
-
-
 </style>
+
 <body>
     <header>
-        <!-- <h1 class="fundacion-title">Fundación Sonrisas Tiernas</h1> Cambia el nombre según corresponda -->
         <nav>
             <div class="menu-icon" id="menuIcon">&#9776;</div> <!-- Icono hamburguesa -->
             <ul class="nav-list" id="navList">
@@ -149,7 +282,6 @@ nav {
         </nav>
     </header>
     
-
     <main>
         <section id="inicio" class="hero">
             <div class="hero-content">
@@ -170,7 +302,6 @@ nav {
                 <ul>
                     <li>Participación activa en carnavales y eventos culturales del municipio</li>
                     <li>Asistencia en trámites médicos y citas con especialistas</li>
-                    <!-- Otros servicios... -->
                 </ul>
             </section>
 
@@ -181,136 +312,98 @@ nav {
                         <img src="./img/Imagen1.jpg" alt="Carnavales del Municipio de Barbacoas">
                         <img src="./img/Imagen2.jpg" alt="Carnaval del Municipio de Barbacoas/ Nariño">
                         <img src="./img/Imagen3.jpg" alt="Carnaval">
-                        <img src="./img/Imagen4.jpg" alt="Visita a la casa de uno de los niño que pertenecen a la Fundación Sonrisas Tiernas">
+                        <img src="./img/Imagen4.jpg" alt="Visita a la casa de uno de los niños que pertenecen a la Fundación Sonrisas Tiernas">
                         <img src="./img/Imagen5.jpg" alt="Cantar jugar y reir">
                         <img src="./img/Imagen6.jpg" alt="Visita del personal de salud de la E.S.E del HSA">
                         <img src="./img/Imagen7.jpg" alt="Visita del personal de salud de la E.S.E del HSA">
                         <img src="./img/Imagen8.jpg" alt="Clases de Danza">
-                        <img src="./img/Imagen9.jpg" alt="Participación de la Fundación Sonrisas Tiernas en los carnavales del Municipio de Barbacoas/ Nariño">
-                    </div>
-                    
-                    <!-- Contenedor para visualizar la imagen ampliada -->
-                    <div id="imageModal" class="image-modal">
-                        <span class="close">&times;</span>
-                        <img class="modal-content" id="modalImage">
-                        <div id="caption"></div>
+                        <img src="./img/Imagen9.jpg" alt="Participación en carnavales del Municipio de Barbacoas">
                     </div>
                 </div>
-                <!-- <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="next" onclick="moveSlide(1)">&#10095;</button> -->
+                <!-- Contenedor para visualizar la imagen ampliada -->
+                <div id="imageModal" class="image-modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modalImage">
+                    <div id="caption"></div>
+                </div>
             </section>
-            
-            
 
             <section id="ubicacion" class="section">
                 <h2>Ubicación</h2>
-                <p><strong>Barbacoas</strong> se encuentra al noroeste de la ciudad de San Juan de Pasto, en la región pacífica. A continuación, te mostramos el mapa de nuestra ubicación:</p>
-                <div id="map" style="width: 100%; height: 400px;"></div>
-                <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-                <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-                <script>
-                    var map = L.map('map').setView([1.6695, -78.1395], 12); // Coordenadas de Barbacoas
-            
-                    // Capa de OpenStreetMap
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 19,
-                        attribution: '© OpenStreetMap'
-                    }).addTo(map);
-            
-                    // Marcador en la ubicación
-                    var marker = L.marker([1.6695, -78.1395]).addTo(map)
-                        .bindPopup('Fundación Sonrisas Tiernas')
-                        .openPopup();
-                </script>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7976.24026471387!2d-78.1357904!3d1.6717424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2c3049f40f6a23%3A0x9677db60a532c92a!2sBarbacoas%2C%20Nari%C3%B1o!5e0!3m2!1ses!2sco!4v1728404880820!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
-            
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Fundación Sonrisas Tiernas - Todos los derechos reservados</p>
+        <p>© 2024 Fundación Sonrisas Tiernas - Todos los derechos reservados</p>
     </footer>
+    <style>
+        /* Estilos para el carrusel */
+        .carousel {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .carousel-images {
+            display: flex;
+            width: max-content;
+            animation: scroll 90s linear infinite; /* Desplazamiento continuo */
+        }
+
+        
+
+        /* Animación de desplazamiento continuo */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .carousel-images img {
+                width: 100%; /* Ajustar el tamaño para pantallas pequeñas */
+            }
+        }
+    </style>
+
 
     <script>
-        // Seleccionamos el modal, la imagen dentro del modal y el caption
-        var modal = document.getElementById('imageModal');
-        var modalImg = document.getElementById("modalImage");
-        var captionText = document.getElementById("caption");
-        var images = document.querySelectorAll('.gallery img');
-        var closeBtn = document.getElementsByClassName("close")[0];
-    
-        // Agregar el evento de clic a todas las imágenes de la galería
-        images.forEach(function(img) {
-            img.onclick = function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            }
+        document.getElementById('menuIcon').addEventListener('click', function () {
+            document.getElementById('navList').classList.toggle('show');
         });
-    
-        // Cerrar el modal al presionar el botón de cierre
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-    
-        // Cerrar el modal al hacer clic fuera de la imagen
-        modal.onclick = function(event) {
-            if (event.target !== modalImg) {
-                modal.style.display = "none";
-            }
-        }
-    
-        var slideIndex = 0;
-        var slides = document.querySelectorAll('.carousel-images img');
-        var totalSlides = slides.length;
-    
-        // Mostrar el primer slide
-        showSlide(slideIndex);
-    
-        // Función para mostrar el slide actual
-        function showSlide(index) {
-            slideIndex = (index + totalSlides) % totalSlides; // Ciclo infinito
-    
-            // Mueve las imágenes al slide correcto
-            document.querySelector('.carousel-images').style.transform = `translateX(-${slideIndex * 100}%)`;
-        }
-    
-        // Carrusel automático sin pausa
-        setInterval(function() {
-            slideIndex++;
-            showSlide(slideIndex);
-        }, 900); // Cambia la imagen cada 100 ms (ajustable)
-    
-        // Agregar el evento de clic a todas las imágenes del carrusel
-        slides.forEach(function(img) {
-            img.onclick = function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            }
-        });
-    
-        // Cerrar el modal al presionar el botón de cierre
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-    
-        // Cerrar el modal al hacer clic fuera de la imagen
-        modal.onclick = function(event) {
-            if (event.target !== modalImg) {
-                modal.style.display = "none";
-            }
-        }
     </script>
     <script>
-        const menuIcon = document.getElementById('menuIcon');
-        const navList = document.getElementById('navList');
+        
+        // Variables para el carrusel
+        const carouselImages = document.querySelector('.carousel-images');
+        let index = 0;
     
-        menuIcon.onclick = function() {
-            navList.classList.toggle('show'); // Alterna la clase 'show'
-        };
+        // Cuando una imagen es clicada, abrir el modal
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('caption');
+        const images = document.querySelectorAll('.carousel-images img');
+    
+        images.forEach(img => {
+            img.addEventListener('click', function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            });
+        });
+    
+        // Cerrar el modal
+        const closeBtn = document.querySelector('.close');
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = "none";
+        });
+    
     </script>
-    
-    
 </body>
 </html>
