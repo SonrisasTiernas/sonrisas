@@ -5,8 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundación Sonrisas Tiernas</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital@0;1&family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+<style>
+    /* Estilos para las secciones mejoradas */
+    .section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
 
+    .section-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .section-container:hover {
+        transform: translateY(-5px);
+    }
+
+    .section-icon {
+        font-size: 3rem;
+        color: #ff5733;
+        margin-bottom: 1rem;
+    }
+
+    .section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #1a1a1a;
+    }
+
+    .section-content {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .logros-list {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    .logros-list li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .logros-list i {
+        color: #ff5733;
+        margin-right: 10px;
+    }
+
+    /* Animación para los iconos */
+    @keyframes iconPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .section-icon {
+        animation: iconPulse 2s infinite;
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .section {
+            padding: 2rem 1rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+        }
+    }
+</style>
 <style>
     #ubicacion iframe {
     width: 100%; /* El iframe ocupará el 100% del ancho disponible */
@@ -290,6 +372,33 @@ footer a:hover {
     }
 }
 </style>
+<style>
+    /* Estilos para el botón "Leer más" y el texto expandible */
+    .texto-expandible {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+    }
+
+    .texto-expandible.expandido {
+        max-height: 1000px; /* Ajusta este valor según la longitud de tu contenido */
+    }
+
+    .leer-mas-btn {
+        background-color: #ff5733;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .leer-mas-btn:hover {
+        background-color: #e64a2e;
+    }
+</style>
 
 <body>
     <header>
@@ -314,21 +423,137 @@ footer a:hover {
                 <a href="#contacto" class="cta-button">¡Contáctanos!</a>
             </div>
         </section>
-
+    
         <div class="container">
             <section id="quienes-somos" class="section">
-                <h2>Quiénes Somos</h2>
-                <p>Fundada en enero de 2016, Sonrisas Tiernas nació de la preocupación y compasión de un grupo de personas por los niños en situación de discapacidad y vulnerabilidad en Barbacoas, Nariño. Nuestra misión es visibilizar a esta población y brindarles una atención integral que mejore sus condiciones de vida, garantizando el goce efectivo de sus derechos.</p>
+                <div class="section-container">
+                    <i class="fas fa-users section-icon"></i>
+                    <h2>Quiénes Somos</h2>
+                    <div class="section-content">
+                        <p>En enero de 2016, un grupo de personas se organizó con preocupación y compasión por los niños en situación de discapacidad y vulnerabilidad. Así nació la fundación SONRISAS TIERNAS. Hemos estado visibilizando a esta población mediante nuestra presencia en diversos actos comunitarios, donde los protagonistas son ellos. Nuestro sueño es brindar atención integral que mejore sus condiciones de vida y garantice el goce efectivo de sus derechos.</p>
+                        <p>Muchos de estos niños forman parte del sistema educativo, recibiendo únicamente atención del docente de aula, sin el acompañamiento de profesionales adecuados a sus necesidades. Otros, desafortunadamente, se encuentran fuera del sistema educativo, enfrentando situaciones de vulnerabilidad que agravan su condición.</p>
+                    </div>
+                </div>
             </section>
+    
+            <!-- <section id="solicitud" class="section">
+                <h2>Solicitud de Apoyo</h2>
+                <p>En Barbacoas, tanto en el sector urbano como rural, hay niños con diversas condiciones, como microtia derecha, sordera, síndrome de Down, discapacidad cognitiva, visual y del lenguaje, entre otros.</p>
+                <p>Como organización dedicada a la labor social, reconocemos que no podemos hacer mucho sin el apoyo de personas comprometidas con esta causa. La población escolarizada no recibe una educación de calidad debido a la falta de atención de profesionales de apoyo, material didáctico y compromiso institucional.</p>
+                <p>Además, la falta de espacios y centros de atención ha llevado a la deserción escolar y a que esta población vulnerable esté expuesta a abusos de toda índole. Nuestro principal interés es brindar un espacio donde los niños puedan desarrollar y disfrutar actividades que organizamos, aunque carecemos de recursos para contar con instrumentos y profesionales disponibles.</p>
+                <p>A veces llevamos a los niños con problemas cognitivos a sus casas para reforzar sus aprendizajes y brindarles apoyo. También hemos llevado personal de salud para ofrecer asistencia médica a aquellos que no pueden trasladarse a un centro de salud por falta de recursos. Nuestro propósito es contar con los recursos necesarios para ofrecerles un lugar donde puedan recibir atención profesional y aprender diversas actividades artísticas, como danza, pintura, canto y manualidades, disfrutando de su tiempo libre.</p>
+            </section> -->
+
+            
+            <section id="solicitud" class="section">
+                <div class="section-container">
+                    <i class="fas fa-hands-helping section-icon"></i>
+                    <h2>Solicitud de Apoyo</h2>
+                    <div class="section-content">
+                        <p>En Barbacoas, tanto en el sector urbano como rural, hay niños con diversas condiciones, como microtia derecha, sordera, síndrome de Down, discapacidad cognitiva, visual y del lenguaje, entre otros.</p>
+                        <p>Como organización dedicada a la labor social, reconocemos que no podemos hacer mucho sin el apoyo de personas comprometidas con esta causa. La población escolarizada no recibe una educación de calidad debido a la falta de atención de profesionales de apoyo, material didáctico y compromiso institucional.</p>
+                        <div class="texto-expandible" id="textoExpandible">
+                            <p>Además, la falta de espacios y centros de atención ha llevado a la deserción escolar y a que esta población vulnerable esté expuesta a abusos de toda índole. Nuestro principal interés es brindar un espacio donde los niños puedan desarrollar y disfrutar actividades que organizamos, aunque carecemos de recursos para contar con instrumentos y profesionales disponibles.</p>
+                            <p>A veces llevamos a los niños con problemas cognitivos a sus casas para reforzar sus aprendizajes y brindarles apoyo. También hemos llevado personal de salud para ofrecer asistencia médica a aquellos que no pueden trasladarse a un centro de salud por falta de recursos. Nuestro propósito es contar con los recursos necesarios para ofrecerles un lugar donde puedan recibir atención profesional y aprender diversas actividades artísticas, como danza, pintura, canto y manualidades, disfrutando de su tiempo libre.</p>
+                        </div>
+                        <button class="leer-mas-btn" id="leerMasBtn">Leer más</button>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- <section id="logros" class="section">
+                <h2>Logros y Actividades</h2>
+                <p>A través del tiempo, hemos realizado una serie de eventos en los que destacamos:</p>
+                <ul>
+                    <li>Participación activa en carnavales y actividades culturales del municipio.</li>
+                    <li>Diligenciamiento de trámites ante Emssanar para citas con especialistas.</li>
+                    <li>Construcción y mejora de viviendas que lo requieren.</li>
+                    <li>Suministro de pañales clínicos a quienes no les cubre la E.P.S.</li>
+                    <li>Asistencia médica en casa, gracias a la E.S.E Hospital San Antonio.</li>
+                    <li>Solicitud ante I.C.B.F. para asignación de cupos en el programa hogar gestor.</li>
+                </ul>
+                <p>Estos esfuerzos nos han permitido mantener un contacto constante con la comunidad y recibir reconocimientos por nuestro trabajo. Actualmente, estamos enfocados en desarrollar la recreación y la escuela de artes y oficios en el municipio, brindando oportunidades a los jóvenes para utilizar su tiempo libre de manera constructiva.</p>
+            </section> -->
+
+
+            <section id="logros" class="section">
+                <div class="section-container">
+                    <i class="fas fa-trophy section-icon"></i>
+                    <h2>Logros y Actividades</h2>
+                    <div class="section-content">
+                        <p>A través del tiempo, hemos realizado una serie de eventos en los que destacamos:</p>
+                        <ul class="logros-list">
+                            <li><i class="fas fa-check"></i> Participación activa en carnavales y actividades culturales del municipio.</li>
+                            <li><i class="fas fa-check"></i> Diligenciamiento de trámites ante Emssanar para citas con especialistas.</li>
+                            <li><i class="fas fa-check"></i>Construcción y mejora de viviendas que lo requieren.</li>
+                            <li><i class="fas fa-check"></i>Suministro de pañales clínicos a quienes no les cubre la E.P.S.</li>
+                            <li><i class="fas fa-check"></i>Asistencia médica en casa, gracias a la E.S.E Hospital San Antonio.</li>
+                            <li><i class="fas fa-check"></i>Solicitud ante I.C.B.F. para asignación de cupos en el programa hogar gestor.</li>
+                            <!-- ... resto de los items ... -->
+                        </ul>
+                        <p>Estos esfuerzos nos han permitido mantener un contacto constante con la comunidad y recibir reconocimientos por nuestro trabajo. Actualmente, estamos enfocados en desarrollar la recreación y la escuela de artes y oficios en el municipio, brindando oportunidades a los jóvenes para utilizar su tiempo libre de manera constructiva.</p>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- <section id="decreto" class="section">
+                <h2>Marco Legal y Desafíos</h2>
+                <p>El decreto 1421 de 2021 establece que la ruta de atención a los niños con discapacidad debe cumplir tres pasos o eventos:</p>
+                <ol>
+                    <li>Accesibilidad</li>
+                    <li>Permanencia</li>
+                    <li>Promoción</li>
+                </ol>
+                <p>Estos pasos son cruciales para alcanzar niveles de competencia que permitan a los niños recibir una educación de calidad y un desarrollo social pleno.</p>
+                <p>En el diagnóstico realizado desde la pandemia, hemos encontrado que la falta de acompañamiento en el proceso educativo ha llevado a situaciones de repetición, deserción y desinterés tanto de los estudiantes como de los padres de familia.</p>
+                <p>Además, la falta de recursos en nuestra fundación representa un desafío significativo. Aprovechamos esta oportunidad para solicitar su apoyo en todos los aspectos, con el fin de continuar con esta noble labor. Que Dios los bendiga y les otorgue sabiduría para culminar con éxito sus periodos de gobierno.</p>
+            </section> -->
+            
+            <section id="decreto" class="section">
+                <div class="section-container">
+                    <i class="fas fa-balance-scale section-icon"></i>
+                    <h2>Marco Legal y Desafíos</h2>
+                    <div class="section-content">
+                        <p>El decreto 1421 de 2021 establece que la ruta de atención a los niños con discapacidad debe cumplir tres pasos o eventos:</p>
+                        <!-- <ol class="decreto-list"> -->
+                            <li><i class="fas fa-door-open"></i> Accesibilidad</li>
+                            <li><i class="fas fa-user-clock"></i> Permanencia</li>
+                            <li><i class="fas fa-chart-line"></i> Promoción</li>
+                        <!-- </ol> -->
+                        <p>Estos pasos son cruciales para alcanzar niveles de competencia que permitan a los niños recibir una educación de calidad y un desarrollo social pleno.</p>
+                        <p>En el diagnóstico realizado desde la pandemia, hemos encontrado que la falta de acompañamiento en el proceso educativo ha llevado a situaciones de repetición, deserción y desinterés tanto de los estudiantes como de los padres de familia.</p>
+                        <p>Además, la falta de recursos en nuestra fundación representa un desafío significativo. Aprovechamos esta oportunidad para solicitar su apoyo en todos los aspectos, con el fin de continuar con esta noble labor. Que Dios los bendiga y les otorgue sabiduría para culminar con éxito sus periodos de gobierno.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- <section id="servicios" class="section">
+                <h2>Nuestros Servicios</h2>
+                <ul>
+                    <li>Participación activa en carnavales y eventos culturales del municipio.</li>
+                    <li>Asistencia en trámites médicos y citas con especialistas.</li>
+                </ul>
+            </section> -->
 
             <section id="servicios" class="section">
-                <h2>Nuestros Servicios y Logros</h2>
-                <ul>
-                    <li>Participación activa en carnavales y eventos culturales del municipio</li>
-                    <li>Asistencia en trámites médicos y citas con especialistas</li>
-                </ul>
+                <div class="section-container">
+                    <i class="fas fa-hands-helping section-icon"></i>
+                    <h2>Nuestros Servicios</h2>
+                    <div class="section-content">
+                        <ul class="servicios-list">
+                            <li>
+                                <i class="fas fa-theater-masks"></i>
+                                <span>Participación activa en carnavales y eventos culturales del municipio</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-user-md"></i>
+                                <span>Asistencia en trámites médicos y citas con especialistas</span>
+                            </li>
+                            <!-- Puedes agregar más servicios aquí si los tienes -->
+                        </ul>
+                    </div>
+                </div>
             </section>
-
+    
             <section id="galeria" class="section">
                 <h2>Galería de Momentos</h2>
                 <div class="carousel">
@@ -351,17 +576,22 @@ footer a:hover {
                     <div id="caption"></div>
                 </div>
             </section>
-
+    
             <section id="ubicacion" class="section">
                 <h2>Ubicación</h2>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7976.24026471387!2d-78.1357904!3d1.6717424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2c3049f40f6a23%3A0x9677db60a532c92a!2sBarbacoas%2C%20Nari%C3%B1o!5e0!3m2!1ses!2sco!4v1728404880820!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
         </div>
     </main>
-
+    
     <footer>
-        <p>© 2024 Fundación Sonrisas Tiernas - Todos los derechos reservados</p>
+        <p>&copy; 2024 Fundación Sonrisas Tiernas | Todos los derechos reservados | Diseñado con ❤ en Barbacoas, Nariño</p>
     </footer>
+    
+
+    <!-- <footer>
+        <p>© 2024 Fundación Sonrisas Tiernas - Todos los derechos reservados</p>
+    </footer> -->
     <style>
         /* Estilos para el carrusel */
         .carousel {
@@ -428,6 +658,21 @@ footer a:hover {
             modal.style.display = "none";
         });
     
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textoExpandible = document.getElementById('textoExpandible');
+            const leerMasBtn = document.getElementById('leerMasBtn');
+    
+            leerMasBtn.addEventListener('click', function() {
+                textoExpandible.classList.toggle('expandido');
+                if (textoExpandible.classList.contains('expandido')) {
+                    leerMasBtn.textContent = 'Leer menos';
+                } else {
+                    leerMasBtn.textContent = 'Leer más';
+                }
+            });
+        });
     </script>
 </body>
 </html>
