@@ -6,6 +6,30 @@
     <title>Fundación Sonrisas Tiernas</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital@0;1&family=Caveat&display=swap" rel="stylesheet">
 </head>
+
+<style>
+    #ubicacion iframe {
+    width: 100%; /* El iframe ocupará el 100% del ancho disponible */
+    height: 300px; /* Ajusta la altura como prefieras */
+    max-width: 600px; /* Límite máximo del ancho en pantallas grandes */
+    border: 0; /* Elimina el borde */
+}
+
+/* Ajustes específicos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    #ubicacion iframe {
+        height: 250px; /* Disminuye la altura en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    #ubicacion iframe {
+        height: 200px; /* Ajusta la altura para pantallas aún más pequeñas */
+    }
+}
+
+</style>
+
 <style>
  /* General reset */
 * {
