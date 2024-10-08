@@ -52,24 +52,103 @@ button.next {
     right: 10px;
 }
 
+/* Estilos generales para el header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #27b0cc; /* Color de fondo */
+    padding: 20px;
+}
+
+.fundacion-title {
+    font-size: 2em; /* Ajusta el tamaño según tus preferencias */
+    margin: 0;
+    color: #333; /* Color del texto */
+}
+
+/* Estilos para el nav */
+nav {
+    width: 100%;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center; /* Centra los elementos del menú */
+    transition: max-height 0.3s ease-out; /* Suaviza el despliegue */
+}
+
+.nav-list li {
+    margin: 0 15px; /* Espaciado entre los enlaces */
+}
+
+.nav-list a {
+    text-decoration: none; /* Sin subrayado */
+    color: #feffff; /* Color del texto */
+    padding: 10px 15px;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.nav-list a:hover {
+    background-color: #007bff; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}
+
+/* Estilos para el icono del menú */
+.menu-icon {
+    display: none; /* Ocultar en pantallas grandes */
+    font-size: 2em;
+    cursor: pointer; /* Manito al pasar el mouse */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Mostrar el icono en pantallas pequeñas */
+    }
+
+    .nav-list {
+        display: none; /* Ocultar el menú por defecto */
+        flex-direction: column; /* Cambiar a disposición vertical */
+        width: 100%; /* Ancho completo */
+        max-height: 0; /* Ocultar el menú */
+        overflow: hidden; /* Evitar desbordamiento */
+        background-color: #27b0cc; /* Color de fondo del menú desplegable */
+    }
+
+    .nav-list.show {
+        display: flex; /* Mostrar menú al activar */
+        max-height: 300px; /* Ajusta según la cantidad de elementos */
+    }
+
+    .nav-list li {
+        margin: 10px 0; /* Espaciado vertical */
+        text-align: center; /* Centrados */
+    }
+}
 
 
 </style>
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#ubicacion">Ubicación</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+        <!-- <h1 class="fundacion-title">Fundación Sonrisas Tiernas</h1> Cambia el nombre según corresponda -->
+        <nav>
+            <div class="menu-icon" id="menuIcon">&#9776;</div> <!-- Icono hamburguesa -->
+            <ul class="nav-list" id="navList">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
+    
 
     <main>
         <section id="inicio" class="hero">
@@ -127,18 +206,24 @@ button.next {
                 <h2>Ubicación</h2>
                 <p><strong>Barbacoas</strong> se encuentra al noroeste de la ciudad de San Juan de Pasto, en la región pacífica. A continuación, te mostramos el mapa de nuestra ubicación:</p>
                 <div id="map" style="width: 100%; height: 400px;"></div>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+                <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
                 <script>
-                    function initMap() {
-                        var barbacoas = { lat: 1.6695, lng: -78.1395 };
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 12,
-                            center: barbacoas
-                        });
-                        var marker = new google.maps.Marker({ position: barbacoas, map: map });
-                    }
+                    var map = L.map('map').setView([1.6695, -78.1395], 12); // Coordenadas de Barbacoas
+            
+                    // Capa de OpenStreetMap
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '© OpenStreetMap'
+                    }).addTo(map);
+            
+                    // Marcador en la ubicación
+                    var marker = L.marker([1.6695, -78.1395]).addTo(map)
+                        .bindPopup('Fundación Sonrisas Tiernas')
+                        .openPopup();
                 </script>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
             </section>
+            
         </div>
     </main>
 
@@ -217,6 +302,15 @@ button.next {
             }
         }
     </script>
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const navList = document.getElementById('navList');
+    
+        menuIcon.onclick = function() {
+            navList.classList.toggle('show'); // Alterna la clase 'show'
+        };
+    </script>
+    
     
 </body>
 </html>
