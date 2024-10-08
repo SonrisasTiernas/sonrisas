@@ -356,8 +356,46 @@ footer a:hover {
     }
 
     .menu-icon {
-        display: block;
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        padding-right: 1rem;
     }
+    .hamburger-icon {
+        margin-right: 10px;
+    }
+    .fundacion-nombre {
+        font-size: 1rem; /* Tamaño de fuente más pequeño */
+        font-weight: normal; /* Peso de fuente normal */
+    }
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .menu-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #1a1a1a;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .nav-list li {
+            margin: 1rem 0;
+        }
+
+        .nav-list.show {
+            display: flex;
+        }
+    }
+
 
     .nav-list.show {
         display: flex;
@@ -403,7 +441,10 @@ footer a:hover {
 <body>
     <header>
         <nav>
-            <div class="menu-icon" id="menuIcon">&#9776; Fundacion Sonrisas Tiernas</div> <!-- Icono hamburguesa -->
+            <div class="menu-icon" id="menuIcon">
+                <span class="hamburger-icon">&#9776;</span>
+                <span class="fundacion-nombre">Fundación Sonrisas Tiernas</span>
+            </div>
             <ul class="nav-list" id="navList">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#quienes-somos">Quiénes Somos</a></li>
