@@ -254,26 +254,27 @@ nav {
 }
 
 /* Gallery / Carousel */
-.carousel {
+/* .carousel {
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     position: relative;
-}
+} */
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+/* .carousel-images {
+        display: flex;
+        width: max-content; */
+        /* animation: scroll 90s linear infinite;  */
+    /* } */
 
-.carousel-images img {
+/* .carousel-images img {
     max-width: 100%;
     max-height: 400px;
     cursor: pointer;
     border-radius: 5px;
     margin: 0 5px;
-}
+} */
 
 /* Image Modal */
 .image-modal {
@@ -609,6 +610,24 @@ footer a:hover {
                         <img src="./img/Imagen7.jpg" alt="Visita del personal de salud de la E.S.E del HSA">
                         <img src="./img/Imagen8.jpg" alt="Clases de Danza">
                         <img src="./img/Imagen9.jpg" alt="Participación en carnavales del Municipio de Barbacoas">
+                    
+                        <img src="./img/Imagen10.jpg" alt="Niños dibujando en actividad creativa en el colegio">
+                        <img src="./img/Imagen11.jpg" alt="Juegos caseros con niños en el patio del colegio">
+                        <img src="./img/Imagen12.jpg" alt="Actividad de plantación con niños en el jardín escolar">
+                        <img src="./img/Imagen13.jpg" alt="Profesor enseñando a un grupo de niños en el aula">
+                        <img src="./img/Imagen14.jpg" alt="Niños participando en juegos educativos en grupo">
+                        <img src="./img/Imagen15.jpg" alt="Actividad de lectura compartida en la biblioteca del colegio">
+                        <img src="./img/Imagen16.jpg" alt="Niños aprendiendo sobre el medio ambiente en clase al aire libre">
+                        <img src="./img/Imagen17.jpg" alt="Taller de manualidades con materiales reciclados en el colegio">
+                        <img src="./img/Imagen18.jpg" alt="Niños jugando y aprendiendo con juegos de mesa educativos">
+                        <img src="./img/Imagen19.jpg" alt="Actividad deportiva y de trabajo en equipo en el patio escolar">
+                        <img src="./img/Imagen20.jpg" alt="Clase de música y expresión corporal con niños">
+                        <img src="./img/Imagen21.jpg" alt="Niños aprendiendo sobre alimentación saludable en el comedor escolar">
+                        <img src="./img/Imagen22.jpg" alt="Actividad de pintura y expresión artística en el aula de arte">
+                        <img src="./img/Imagen23.jpg" alt="Niños participando en experimentos científicos sencillos">
+                        <img src="./img/Imagen24.jpg" alt="Clase de yoga y relajación para niños en el gimnasio escolar">
+                        <img src="./img/Imagen25.jpg" alt="Celebración de logros y entrega de reconocimientos a los niños">
+                        
                     </div>
                 </div>
                 <!-- Contenedor para visualizar la imagen ampliada -->
@@ -623,6 +642,11 @@ footer a:hover {
                 <h2>Ubicación</h2>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7976.24026471387!2d-78.1357904!3d1.6717424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2c3049f40f6a23%3A0x9677db60a532c92a!2sBarbacoas%2C%20Nari%C3%B1o!5e0!3m2!1ses!2sco!4v1728404880820!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
+            <audio id="backgroundMusic" loop>
+                <source src="./music/musicaweb.opus" type="audio/ogg; codecs=opus">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            
         </div>
     </main>
     
@@ -635,35 +659,44 @@ footer a:hover {
         <p>© 2024 Fundación Sonrisas Tiernas - Todos los derechos reservados</p>
     </footer> -->
     <style>
-        /* Estilos para el carrusel */
         .carousel {
             overflow: hidden;
             width: 100%;
             position: relative;
         }
-
+    
         .carousel-images {
             display: flex;
             width: max-content;
             animation: scroll 90s linear infinite; /* Desplazamiento continuo */
         }
-
-        
-
-        /* Animación de desplazamiento continuo */
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+    
+        .carousel-images img {
+            max-width: 100%;
+            max-height: 400px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
         }
-
-        /* Para pantallas pequeñas */
+    
+        @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% + 100vw));
+        }
+    }
+    
+        /* Para pausar la animación al pasar el ratón por encima */
+        .carousel:hover .carousel-images {
+            animation-play-state: paused;
+        }
+    
+        /* Estilos responsivos */
         @media (max-width: 768px) {
             .carousel-images img {
-                width: 100%; /* Ajustar el tamaño para pantallas pequeñas */
+                max-height: 300px; /* Ajusta según tus necesidades */
             }
         }
     </style>
@@ -672,6 +705,20 @@ footer a:hover {
     <script>
         document.getElementById('menuIcon').addEventListener('click', function () {
             document.getElementById('navList').classList.toggle('show');
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var music = document.getElementById('backgroundMusic');
+            music.volume = 0.1; // Ajusta el volumen (0.0 a 1.0)
+            
+            // Intenta reproducir la música después de cualquier interacción del usuario
+            document.body.addEventListener('click', function() {
+                music.play().catch(function(error) {
+                    console.log('No se pudo reproducir el audio:', error);
+                });
+            }, { once: true }); // 'once: true' asegura que el evento solo se dispare una vez
         });
     </script>
     <script>
