@@ -8,6 +8,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <style>
+    #contacto {
+        background-color: #f8f8f8;
+        padding: 3rem 0;
+    }
+
+    #contacto h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 2rem;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .contact-item i {
+        font-size: 1.5rem;
+        color: #ff5733;
+    }
+
+    .contact-item p {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .contact-item a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+        color: #ff5733;
+    }
+
+    @media (max-width: 768px) {
+        .contact-info {
+            align-items: flex-start;
+        }
+    }
+</style>
+<style>
     #apoyan {
         background-color: #f8f8f8;
         padding: 2rem 0;
@@ -227,7 +278,7 @@ nav {
 /* Hero section */
 .hero {
     position: relative;
-    background-image: url('./img/Imagen2.jpg'); /* Cambia a la ruta de tu imagen */
+    background-image: url('./img/Imagen3.jpg'); /* Cambia a la ruta de tu imagen */
     background-size: cover;
     background-position: center;
     height: 100vh; /* Ajusta la altura según sea necesario */
@@ -623,6 +674,73 @@ footer a:hover {
         }
     }
 </style>
+<style>
+    #proyecto-principal {
+        background-color: #f8f8f8;
+        padding: 4rem 0;
+    }
+
+    #proyecto-principal h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 2rem;
+    }
+
+    .proyecto-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .proyecto-content h3 {
+        color: #ff5733;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .proyecto-descripcion {
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #666;
+    }
+
+    .proyecto-detalles p {
+        margin-bottom: 1rem;
+    }
+
+    .proyecto-detalles ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .proyecto-detalles li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .proyecto-detalles li::before {
+        content: "•";
+        color: #ff5733;
+        position: absolute;
+        left: 0;
+    }
+
+    @media (max-width: 768px) {
+        .proyecto-content {
+            padding: 1.5rem;
+        }
+
+        .proyecto-content h3 {
+            font-size: 1.3rem;
+        }
+    }
+</style>
 <body>
     <header>
         <nav>
@@ -647,6 +765,23 @@ footer a:hover {
                 <h1>Fundación Sonrisas Tiernas</h1>
                 <p>Transformando vidas y creando oportunidades para niños con discapacidad en Barbacoas, Nariño desde 2016</p>
                 <a href="#contacto" class="cta-button">¡Contáctanos!</a>
+            </div>
+        </section>
+        <section id="proyecto-principal" class="section">
+            <div class="section-container">
+                <h2>Nuestro Proyecto Principal</h2>
+                <div class="proyecto-content">
+                    <h3>Formación en cantos y bailes tradicionales para promover la autoestima y habilidades sociales</h3>
+                    <p class="proyecto-descripcion">
+                        Dirigido a niños, niñas y adolescentes con discapacidad y vulnerabilidad 
+                        del municipio de Barbacoas, departamento de Nariño
+                    </p>
+                    <div class="proyecto-detalles">
+                        <p>Este proyecto busca fortalecer la autoestima y desarrollar habilidades sociales 
+                        en nuestra comunidad a través de la rica tradición cultural de nuestra región.</p>
+                       
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -904,6 +1039,25 @@ footer a:hover {
             </audio>
             
         </div>
+        <section id="contacto" class="section">
+            <div class="section-container">
+                <h2>Contáctanos</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>E-mail: <a href="mailto:sonrisastiernas@gmail.com">sonrisastiernas@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Ubicación: Barbacoas, Nariño</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>Celular: <a href="tel:+573122181596">3122181596</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         
         <section id="apoyan" class="section">
