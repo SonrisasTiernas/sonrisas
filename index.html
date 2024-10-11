@@ -566,6 +566,63 @@ footer a:hover {
     }
 </style>
 
+<style>
+    #invitacion {
+        background-color: #f8f8f8;
+        padding: 3rem 0;
+    }
+
+    /* .section-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    } */
+
+    .logo-container {
+        flex: 1;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .fundacion-logo {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .coplas-container {
+        flex: 2;
+        padding: 0 2rem;
+    }
+
+    .coplas-container h2 {
+        text-align: center;
+        color: #ff5733;
+        margin-bottom: 1.5rem;
+    }
+
+    .coplas {
+        font-style: italic;
+        text-align: center;
+    }
+
+    .coplas p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .section-container {
+            flex-direction: column;
+        }
+
+        .logo-container, .coplas-container {
+            flex: 1 1 100%;
+        }
+    }
+</style>
 <body>
     <header>
         <nav>
@@ -593,26 +650,39 @@ footer a:hover {
             </div>
         </section>
 
-        <section id="apoyan" class="section">
+        <section id="invitacion" class="section">
             <div class="section-container">
-                <h2>Nos Apoyan</h2>
-                <div class="logos-container">
-                    <div class="logo-item">
-                        <img src="./img/logosapoyan/fundacion_nacional_batuta.png" alt="Logo de Batuta">
+                <div class="logo-container">
+                    <img src="./img/logosapoyan/sonrisas.png" alt="Logo de Fundación Sonrisas Tiernas" class="fundacion-logo">
+                </div>
+                <div class="coplas-container">
+                    <h2>Invitación</h2>
+                    <div class="coplas">
+                        <p>
+                            Fundación Sonrisas Tiernas<br>
+                            Y el Ministerio de Cultura<br>
+                            Te invitamos a participar<br>
+                            En esta hermosa aventura.
+                        </p>
+                        <p>
+                            Y Batuta nos orienta<br>
+                            En este magno proceso<br>
+                            De lograr en nuestros niños<br>
+                            Competencia y progreso.
+                        </p>
+                        <p>
+                            Tendremos aventuras<br>
+                            Serán en cantos y bailes<br>
+                            Herencia de nuestros abuelos<br>
+                            Con sentidos raizales
+                        </p>
                     </div>
-                    <div class="logo-item">
-                        <img src="./img/logosapoyan/Logo_Ministerio_de_Cultura_de_Colombia_2022-2026.png" alt="Logo de ministerio">
-                    </div>
-                    <div class="logo-item">
-                        <img src="./img/logosapoyan/sonidos.png" alt="Logo de sonidos">
-                    </div>
-                    <div class="logo-item">
-                        <img src="./img/logosapoyan/Logo_gobierno_de_Colombia_(2022-2026).png" alt="Logo de Gobierno">
-                    </div>
-                   
                 </div>
             </div>
         </section>
+
+
+        
     
         <div class="container">
             <section id="quienes-somos" class="section">
@@ -817,6 +887,28 @@ footer a:hover {
             </audio>
             
         </div>
+
+        
+        <section id="apoyan" class="section">
+            <div class="section-container">
+                <h2>Nos Apoyan</h2>
+                <div class="logos-container">
+                    <div class="logo-item">
+                        <img src="./img/logosapoyan/fundacion_nacional_batuta.png" alt="Logo de Batuta">
+                    </div>
+                    <div class="logo-item">
+                        <img src="./img/logosapoyan/Logo_Ministerio_de_Cultura_de_Colombia_2022-2026.png" alt="Logo de ministerio">
+                    </div>
+                    <div class="logo-item">
+                        <img src="./img/logosapoyan/sonidos.png" alt="Logo de sonidos">
+                    </div>
+                    <div class="logo-item">
+                        <img src="./img/logosapoyan/Logo_gobierno_de_Colombia_(2022-2026).png" alt="Logo de Gobierno">
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
     </main>
     
     
